@@ -27,19 +27,7 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-// Configurer CORS pour autoriser ton frontend spécifique
-const allowedOrigins = ['https://www.trust-group.agency'];
 
-app.use(cors({
-  origin: function(origin, callback) {
-    // Autoriser les requêtes venant de www.trust-group.agency
-    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  }
-}));
 
 // Ton code serveur ici
 app.get('/api/some-endpoint', (req, res) => {
